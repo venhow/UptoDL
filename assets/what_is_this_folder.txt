@@ -1,0 +1,11 @@
+This folder contains all the resources necessary for UptoDL to function properly. You must not delete any of its files and folders, or you will get errors.
+
+Explanation of each file/folder:
+
+- /dl_temp : It is in this folder that the two multimedia sources will be downloaded and then assembled by the program.
+- /PluggableTransports : In this folder there are two executable files necessary for "tor.exe", used for proxies.
+- /Tor : In this folder there are still files necessary to "tor.exe" for the configuration of proxies.
+- ffmpeg.exe : This executable file is used in the program to assemble the audio and video into one final video.
+- firefox_path.json : UptoDL needs Firefox to work, so at the first startup, the path of Firefox is requested and stored in this JSON file to not have to mention it anymore.
+- geckodriver.exe : This executable file allows the "SeleniumWire" module to control firefox.
+- tor.exe : It's just the Tor service to use as a proxy.

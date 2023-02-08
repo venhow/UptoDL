@@ -1,0 +1,1 @@
+This is where the two multimedia outputs will be downloaded, so do not delete this folder.
