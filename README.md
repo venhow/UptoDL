@@ -1,5 +1,6 @@
 # UptoDL <img src="https://i.imgur.com/4a9nZ4D.png" width="40">
-## Free Uptobox/Uptostream downloader
+
+## Uptobox/Uptostream downloader without waiting time.
 
 
 <h1 align="center">
@@ -15,8 +16,9 @@
 - Download without time limit.
 - Download without connection restrictions.
 - Be able to choose the quality of the video content to download.
+- Anonymous download from Tor proxy.
 
-UptoDL allows you to download content from Uptobox/Uptostream servers at high speed and without waiting.
+UptoDL is a script for downloading videos hosted on Uptobox/Uptostream. It takes care of downloading the two independent multimedia outputs of the video file in question, then assembles them. There's no more waiting between downloads using Tor proxies.
 
 ## ⬇️ Installation
 
@@ -41,10 +43,7 @@ pip install -r requirements.txt
 
 ### Download from Uptobox/Uptostream servers :
 
-Just run the Python script, or the realease executable, and wait for the loading to finish. Then enter an Uptobox/Uptostream link. Wait for the end of the loading and select a quality to download. Wait again for the end of the download and the compilation. After that, you will have your final video file.
-
-**⚠️ WARNING : You MUST have at least one minute of content on Uptostream. The platform gives away about 2 hours for free. You must have at least one to start downloading.**
-
+Just run the Python script and wait for the Tor and Firefox proxies to load. Then enter an Uptobox/Uptostream link. Wait for the loading to finish and select a quality to download. Wait again for the upload to finish and compile. After that you will have your final video file.
 
 ## 🔧 Credits
 
