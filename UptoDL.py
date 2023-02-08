@@ -1,17 +1,24 @@
 from seleniumwire import webdriver
 from selenium.webdriver.common.by import By
 from xml.etree.ElementTree import fromstring
-from os import path, remove
+from os import path, remove, system
 from time import sleep
 from json import load, dump
 from wget import download
-from subprocess import Popen
+from subprocess import Popen, DEVNULL, check_output
 from colorama import Fore, init
-from os import system, _exit
+from requests import get
 
 system("title " + "UptoDL")
 
 init(convert=True)
+
+def process_exists(process_name):
+    progs = str(check_output('tasklist'))
+    if process_name in progs:
+        return True
+    else:
+        return False
 
 def ascii_print():
   system("cls")
@@ -28,8 +35,8 @@ def ascii_print():
   ~ {Fore.WHITE}https://github.com/Nathoune987""")
 
 def upto_dl():
-  video_temp_path = "assets/video_temp.mp4"
-  audio_temp_path = "assets/audio_temp.mp3"
+  video_temp_path = "assets/dl_temp/video_temp.mp4"
+  audio_temp_path = "assets/dl_temp/audio_temp.mp3"
 
   if path.exists(video_temp_path):
     remove(video_temp_path)
@@ -48,14 +55,26 @@ def upto_dl():
   dump(data, firefox_json_write)
   firefox_json_write.close()
 
-  print(f"\r\n{Fore.WHITE}Starting, please wait.\r\n")
+  print(f"\r\n{Fore.WHITE}Starting proxy server.\r\n")
 
+  Popen(r"tor.exe -f Tor/torrc", shell=True, cwd="assets", stdout=DEVNULL)
+
+  while True:
+    try:
+      get("https://torproject.org/", proxies={"http": "socks5://127.0.0.1:987", "https": "socks5://127.0.0.1:987"})
+      break
+    except:
+      pass
+
+  print(f"{Fore.WHITE}Starting Firefox driver.\r\n")
+
+  proxy_options = {'proxy': {'http': 'socks5://127.0.0.1:987', 'https': 'socks5://127.0.0.1:987'}}
   options = webdriver.FirefoxOptions()
   options.binary_location = data["firefox_path"]
   options.add_argument('--headless')
   options.set_preference("media.volume_scale", "0.0")
 
-  driver = webdriver.Firefox(executable_path=path.abspath(r"geckodriver.exe"), service_log_path=path.devnull, options=options)
+  driver = webdriver.Firefox(executable_path=path.abspath(r"geckodriver.exe"), service_log_path=path.devnull, options=options, seleniumwire_options=proxy_options)
 
   ascii_print()
 
@@ -75,7 +94,9 @@ def upto_dl():
 
   recovered_video_title = driver.find_element(By.CSS_SELECTOR, ".file-title").text.replace(" ", "_")
 
-  print(f"\r\nThe video will be recovered : {Fore.LIGHTMAGENTA_EX}{recovered_video_title}{Fore.WHITE}")
+  ascii_print()
+
+  print(f"\r\nThis video will be recovered : {Fore.LIGHTMAGENTA_EX}{recovered_video_title}{Fore.WHITE}")
 
   movie_extensions = [".mkv", ".mp4", ".avi", ".mov"]
 
@@ -88,7 +109,7 @@ def upto_dl():
 
   driver.find_element(By.CSS_SELECTOR, ".vjs-big-play-button").click()
 
-  sleep(4)
+  sleep(6)
 
   network_requests = driver.requests
 
@@ -108,8 +129,8 @@ def upto_dl():
   try:
     tree = fromstring(xml_mpd_file)
   except:
-    input(f"\r\n{Fore.LIGHTRED_EX}No more video credits. Change your IP to get more video credit. For this you can use for example ProxOnion (https://github.com/Nathoune987/ProxOnion) or VPN.{Fore.WHITE}")
-    _exit(1)
+    input(f"\r\n{Fore.LIGHTRED_EX}The proxy used has no more video credits on Uptostream. Press {Fore.LIGHTMAGENTA_EX}[ENTER] {Fore.LIGHTRED_EX}to change the proxy and try again.{Fore.WHITE}")
+    upto_dl()
 
   video_file_codes = []
 
@@ -135,6 +156,8 @@ def upto_dl():
 
   video_link = uptobox_stream_file+list(result.values())[quality_choice-1]
 
+  ascii_print()
+
   print(f"\r\n{Fore.WHITE}Links of the video successfully recovered. Downloading...{Fore.LIGHTMAGENTA_EX}\r\n")
 
   download(video_link, video_temp_path)
@@ -142,9 +165,22 @@ def upto_dl():
 
   print(f"\r\n\r\n{Fore.WHITE}Finished downloading, compiling audio and video...\r\n")
 
-  Popen(fr"assets/ffmpeg.exe -i {audio_temp_path} -i {video_temp_path} -acodec copy -vcodec copy {uptostream_title_content}.mp4 -hide_banner -loglevel error")
+  if process_exists('tor.exe'):
+      Popen(r"TASKKILL /F /IM tor.exe", shell=True, stdout=DEVNULL)
 
-  input(f"\r\n{Fore.LIGHTGREEN_EX}Download and compile completed. {Fore.WHITE}Your file is ready : {Fore.LIGHTMAGENTA_EX}{uptostream_title_content}.mp4")
-  upto_dl()
+  if path.exists(f"{uptostream_title_content}.mp4"):
+    remove(f"{uptostream_title_content}.mp4")
+
+  video_compiling = Popen(fr"assets/ffmpeg.exe -i {audio_temp_path} -i {video_temp_path} -acodec copy -vcodec copy {uptostream_title_content}.mp4 -hide_banner -loglevel error")
+
+  video_compiling.wait()
+
+  end_choice = input(f"{Fore.LIGHTGREEN_EX}Download and compile completed.\r\n\r\n{Fore.WHITE}Your file is ready : {Fore.LIGHTMAGENTA_EX}{uptostream_title_content}.mp4\r\n{Fore.WHITE}Press {Fore.LIGHTMAGENTA_EX}[ENTER] {Fore.WHITE}to open the video file or any other key then enter to return to the main menu\r\n")
+
+  if end_choice == "":
+    system(f"{uptostream_title_content}.mp4")
+    upto_dl()
+  else:
+    upto_dl()
 
 upto_dl()
