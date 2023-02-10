@@ -45,6 +45,14 @@ pip install -r requirements.txt
 
 Just run the Python script and wait for the Tor and Firefox proxies to load. Then enter an Uptobox/Uptostream link. Wait for the loading to finish and select a quality to download. Wait again for the upload to finish and compile. After that you will have your final video file.
 
+UptoDL will take care of downloading and assembling :
+
+- The video track
+- The audio track
+- The different subtitle tracks, if available
+
+All this through Tor proxies, so anonymity is guaranteed and there's no waiting time.
+
 ## 🔧 Credits
 
 - Nathoune<br>
