@@ -88,7 +88,7 @@ def upto_dl():
   options.add_argument('--headless')
   options.set_preference("media.volume_scale", "0.0")
 
-  driver = webdriver.Firefox(executable_path=path.abspath(r"geckodriver.exe"), service_log_path=path.devnull, options=options, seleniumwire_options=proxy_options)
+  driver = webdriver.Firefox(executable_path=path.abspath(r"assets/geckodriver.exe"), service_log_path=path.devnull, options=options, seleniumwire_options=proxy_options)
 
   ascii_print()
 
