@@ -35,7 +35,7 @@ def ascii_print():
         | |                         
         |_|{Fore.LIGHTMAGENTA_EX}                         
 
-  ~ {Fore.WHITE}https://github.com/Spel987""")
+  ~ {Fore.WHITE}https://github.com/spel987""")
 
 def upto_dl():
   #Useful for comparisons
