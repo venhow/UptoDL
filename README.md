@@ -4,11 +4,11 @@
 
 
 <h1 align="center">
-<a href="https://github.com/Nathoune987/UptoDL"><img src="https://i.imgur.com/aTmDLFW.png"></a>
+<a href="https://github.com/spel987/UptoDL"><img src="https://i.imgur.com/aTmDLFW.png"></a>
 </h1>
 
 <h1 align="center">
-<a href="https://github.com/Nathoune987/UptoDL/archive/refs/heads/main.zip"><img src="https://i.imgur.com/AkmPYPk.png" width="250"></a>
+<a href="https://github.com/spel987/UptoDL/archive/refs/heads/main.zip"><img src="https://i.imgur.com/AkmPYPk.png" width="250"></a>
 </h1>
 
 ## 🚀 Features
@@ -56,14 +56,14 @@ All this through Tor proxies, so anonymity is guaranteed and there's no waiting 
 ## 🔧 Credits
 
 - Nathoune<br>
-    Discord : `Nathoune#6622`<br>
-    Email : `nathoune987@proton.me`<br>
-    GitHub : https://github.com/Nathoune987
+    Discord : `spel987`<br>
+    Email : `spel@usurp.in`<br>
+    GitHub : https://github.com/spel987
 
 
 ## ❓ Suggestions
 
-If you have any questions or suggestions, please open an [issue](https://github.com/Nathoune987/UptoDL/issues). 
+If you have any questions or suggestions, please open an [issue](https://github.com/spel987/UptoDL/issues). 
 <h1 align="center">
 <img src="https://i.imgur.com/PBtR0wF.png" width=150>
 </h1>
@@ -74,13 +74,13 @@ If you like this project or want to support it, you can make donations.
 
 Ethereum : 
 ```
-0x43f7B5b062AD6c560ca0B46B8F2D11c64df2B0AD
+0x79024c8eA7Bfdef93cBa538eB6288a9bB40eFC97
 ```
 Bitcoin :
 ```
-bc1q32pf2lg98l273jhvrq8d4kk9jumqt8y8jhfpmp
+bc1qua3qmrhlv3e53ydynwvfc2wq8q7wteqxwlewa4
 ```
 
 <h1 align="center">
-<a href="https://github.com/Nathoune987/UptoDL"><img src="https://i.imgur.com/kEVhT09.png"></a>
+<a href="https://github.com/spel987/UptoDL"><img src="https://i.imgur.com/kEVhT09.png"></a>
 </h1>
