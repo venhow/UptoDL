@@ -11,7 +11,7 @@ from requests import get
 from socks import set_default_proxy, SOCKS5, socksocket
 import socket
 
-system("title " + "UptoDL ~ Nathoune987")
+system("title " + "UptoDL ~ Spel987")
 
 init(convert=True)
 
@@ -35,7 +35,7 @@ def ascii_print():
         | |                         
         |_|{Fore.LIGHTMAGENTA_EX}                         
 
-  ~ {Fore.WHITE}https://github.com/Nathoune987""")
+  ~ {Fore.WHITE}https://github.com/Spel987""")
 
 def upto_dl():
   #Useful for comparisons
