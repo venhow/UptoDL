@@ -55,7 +55,7 @@ All this through Tor proxies, so anonymity is guaranteed and there's no waiting 
 
 ## 🔧 Credits
 
-- Nathoune<br>
+- Spel<br>
     Discord : `spel987`<br>
     Email : `spel@usurp.in`<br>
     GitHub : https://github.com/spel987
